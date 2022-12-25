@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "demo",
     "inventory",
     "search",
+    "promotions",
     # 3rd parties
     "rest_framework",
     "django_elasticsearch_dsl",
