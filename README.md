@@ -2,13 +2,14 @@
 
 ---
 Docker:
-  - [ ] Start promotion app
-  - [ ] Involve Redis
+  - [ ] Django server
+  - [ ] Redis
+  - [ ] Flower
   - [ ] Celery / Celery Beat
 
 Database:
-  - [ ] Validator
-  - [ ] Field refactoring
+  - [x] Validator
+  - [x] Field refactoring
 
 Testing:
   - [ ] Unit testing promotion app

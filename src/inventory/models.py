@@ -1,4 +1,7 @@
+from decimal import Decimal
+from django.core.validators import MinValueValidator
 from django.db import models
+from django.core.validators import MinValueValidator
 from django.utils.translation import gettext_lazy as _
 
 from mptt.models import MPTTModel, TreeForeignKey, TreeManyToManyField
@@ -153,27 +156,17 @@ class ProductInventory(models.Model):
     retail_price = models.DecimalField(
         verbose_name=_("product retail price"),
         help_text=_("format: maximum price 999.99"),
-        max_digits=5,
+        max_digits=10,
         decimal_places=2,
         error_messages={
             "name": {
                 "max_length": _("the price must be between 0 and 999.99"),
             }
         },
+        validators=[MinValueValidator(Decimal("0.01"))]
     )
     store_price = models.DecimalField(
         verbose_name=_("product store price"),
-        help_text=_("format: maximum price 999.99"),
-        max_digits=5,
-        decimal_places=2,
-        error_messages={
-            "name": {
-                "max_length": _("the price must be between 0 and 999.99"),
-            }
-        },
-    )
-    sale_price = models.DecimalField(
-        verbose_name=_("sale price"),
         help_text=_("format: maximum price 999.99"),
         max_digits=5,
         decimal_places=2,
