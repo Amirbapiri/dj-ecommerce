@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Hi there, It's our amazing homepage.</h1>
+
+<h2>For more you may visit: </h2>
+<ul>
+  <li>
+     <a href="{% url 'demo:categories' %}">Categories</a>
+  </li>
+</ul>
+
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul>
+      <b>Product</b>
+      <li>Name: {{ product_inventory.product.name }}</li>
+      <li>SKU: {{ product_inventory.sku}}</li>
+      {% for item in product_inventory.stock.all %}
+        <li>{{ item.units }}</li>
+      {% endfor %}
+      <i>Attributes</i>
+      {% for attr_value in product_inventory.attribute_values.all %}
+      <li>{{attr_value.product_attribute.name}}: {{ attr_value.attribute_value }}</li>
+      {% endfor %}
+    ---------------------------------------- </br>
+      {% for x in z %}
+        <li>
+          {{ x.product_attribute__name }}
+          <ul>
+          {% for a in y %}
+          {% if a.attribute_values__product_attribute__name == x.product_attribute__name %}
+
+            {% if a.attribute_values__attribute_value in product_inventory.field_a %}
+            <li>{{ a.attribute_values__attribute_value }}</li>
+            {% else %}
+              <li> {{ a.attribute_values__attribute_value }} </li>
+            {%endif %}
+          {% endif %}
+
+          {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+  </ul>
+{% endblock content %}
+
