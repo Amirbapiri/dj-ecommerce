@@ -8,6 +8,14 @@ ENV PYTHONUNBUFFERED 1
 RUN apk add -u zlib-dev jpeg-dev gcc musl-dev
 RUN pip install --upgrade pip
 
+COPY . .
 COPY ./requirements.txt . 
+
+RUN \
+ apk add --no-cache postgresql-libs && \
+ apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev && \
+ python3 -m pip install -r requirements.txt --no-cache-dir && \
+ apk --purge del .build-deps
+RUN pip install psycopg2-binary
 
 RUN pip install -r requirements.txt

@@ -1,19 +1,22 @@
 version: "3.8"
 
 services:
-  srv:
-    restart: always
-    container_name: djcommerce
-    build:
-      context: .
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/usr/src/app
-    ports:
-      - 8000:8000
-    depends_on:
-      - redis
-      - pgdb
+  #srv:
+  #  container_name: djcommerce
+  #  build:
+  #    context: .
+  #  command: python manage.py loadfixtures && python manage.py runserver 0.0.0.0:8000 && python manage.py search_index --rebuild
+  #  networks:
+  #    - djangonetwork
+  #  volumes:
+  #    - .:/usr/src/app
+  #  ports:
+  #    - 8000:8000
+  #  env_file:
+  #    - ./dev.env
+  #  depends_on:
+  #    - pgdb
+  #    - redis
 
   pgdb:
     container_name: pgdb_ecommerce
@@ -21,6 +24,10 @@ services:
     restart: always
     ports:
       - 5432:5432
+    #env_file:
+      #  - ./dev.env
+    networks:
+      - djangonetwork
     environment:
       - POSTGRES_DB=ecommercev2
       - POSTGERS_USER=postgres
@@ -67,3 +74,8 @@ services:
   #     - CELERY_BROKER_URL=redis://redis:6379/0
   #   ports:
   #     - 8888:8888
+networks:
+  djangonetwork:
+    driver: bridge
+volumes:
+  pgdata:
