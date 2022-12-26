@@ -163,7 +163,7 @@ class ProductInventory(models.Model):
                 "max_length": _("the price must be between 0 and 999.99"),
             }
         },
-        validators=[MinValueValidator(Decimal("0.01"))]
+        validators=[MinValueValidator(Decimal("0.01"))],
     )
     store_price = models.DecimalField(
         verbose_name=_("product store price"),
