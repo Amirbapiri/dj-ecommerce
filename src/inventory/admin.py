@@ -14,5 +14,6 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 @admin.register(ProductInventory)
-class ProductAdmin(admin.ModelAdmin):
+class ProductInventoryAdmin(admin.ModelAdmin):
     search_fields = ("product__name",)
+    list_display = ("product", "store_price")

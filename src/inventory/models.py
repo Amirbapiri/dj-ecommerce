@@ -190,6 +190,9 @@ class ProductInventory(models.Model):
         auto_now=True,
     )
 
+    class Meta:
+        verbose_name_plural = "Product Inventories"
+
     def __str__(self):
         return self.product.name
 
