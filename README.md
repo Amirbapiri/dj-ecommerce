@@ -18,7 +18,7 @@ Testing:
 Promotion app:
   - [x] Start Promotion app
   - [x] Define models and relations
-  - [ ] Add new promotion to pre-existing individual product inventory
+  - [x] Add new promotion to pre-existing individual product inventory
   - [ ] Bulk apply discount as a percentage to all chosen products in a promotion
   - [ ] Manually override discount price to all users to define a custom price
   - [ ] Promotion prices must be editable over multiple promotions
