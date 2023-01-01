@@ -21,10 +21,6 @@ class PromotionsModelAdmin(admin.ModelAdmin):
         "promo_end",
     ]
 
-    def save_model(self, request, obj, form, change):
-        promotion_prices.delay(obj.promotion_reduction, obj)
-        return super().save_model(request, obj, form, change)
-
 
 admin.site.register(PromotionType)
 admin.site.register(Coupon)

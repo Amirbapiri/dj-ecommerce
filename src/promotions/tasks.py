@@ -8,7 +8,7 @@ from celery import shared_task
 from .models import Promotion
 
 
-@shared_task
+@shared_task(name="apply_promotion_to_products_on_promotion")
 def promotion_prices(reduction_amount, instance):
     with transaction.atomic():
         # Getting all the items included in the promotion

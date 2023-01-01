@@ -3,9 +3,10 @@
 ---
 Docker:
   - [ ] Django server
-  - [ ] Redis
+  - [x] Redis
   - [ ] Flower
-  - [ ] Celery / Celery Beat
+  - [x] Celery
+  - [ ] Celery Beat
 
 Database:
   - [x] Validator
@@ -13,13 +14,13 @@ Database:
 
 Testing:
   - [ ] Unit testing promotion app
-  - [ ] Unit test Celery
+  - [x] Unit test Celery
 
 Promotion app:
   - [x] Start Promotion app
   - [x] Define models and relations
   - [x] Add new promotion to pre-existing individual product inventory
-  - [ ] Bulk apply discount as a percentage to all chosen products in a promotion
+  - [x] Bulk apply discount as a percentage to all chosen products in a promotion
   - [ ] Manually override discount price to all users to define a custom price
   - [ ] Promotion prices must be editable over multiple promotions
   - [ ] Specify the promotion timescale to be active

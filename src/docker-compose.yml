@@ -35,7 +35,7 @@ services:
 
   redis:
     restart: always
-    container_name: redis
+    container_name: redis_djcommerce
     image: redis:7.0.7-alpine
     ports:
       - 6379:6379
@@ -48,8 +48,8 @@ services:
     command: celery -A ecommerce worker -l info
     environment:
       - DEBUG=1
-      - CELERY_BROKER=redis://redis:6379/0
-      - CELERY_BACKEND=redis://redis:6379/1
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/1
     depends_on:
       - redis
     volumes:
@@ -60,8 +60,7 @@ services:
   #   restart: always
   #   build:
   #     context: .
-  #   command: celery -A ecommercev2 beat -l info
-  #   depends_on:
+  #   command: celery -A ecommercev2 beat -l info depends_on:
   #     - redis
   #     - celery
   #   volumes:

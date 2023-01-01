@@ -78,4 +78,4 @@ class ProductOnPromotion(models.Model):
     price_override = models.BooleanField(default=False)
 
     class Meta:
-        unique_together = ("product_inventory", "promotion")
+        unique_together = (("product_inventory", "promotion"),)
